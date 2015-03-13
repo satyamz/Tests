@@ -1,0 +1,72 @@
+Setting --no-config (noconfig) to 1
+Setting --tries (tries) to 2
+DEBUG output created by Wget 1.16.2.2-e316-dirty on linux-gnu.
+
+--2015-03-14 03:05:23--  http://127.0.0.1:54595/File1
+Connecting to 127.0.0.1:54595... connected.
+Created socket 3.
+Releasing 0x00000000007de7e0 (new refcount 0).
+Deleting unused 0x00000000007de7e0.
+
+---request begin---
+GET /File1 HTTP/1.1
+User-Agent: Wget/1.16.2.2-e316-dirty (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 127.0.0.1:54595
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 503 Service Unavailable
+Server: BaseHTTP/0.6 Python/3.4.0
+Date: Fri, 13 Mar 2015 21:35:23 GMT
+
+---response end---
+503 Service Unavailable
+Registered socket 3 for persistent reuse.
+] done.
+2015-03-14 03:05:23 ERROR 503: Service Unavailable.
+
+--2015-03-14 03:05:23--  http://127.0.0.1:54595/File2
+Reusing existing connection to 127.0.0.1:54595.
+Reusing fd 3.
+
+---request begin---
+GET /File2 HTTP/1.1
+User-Agent: Wget/1.16.2.2-e316-dirty (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 127.0.0.1:54595
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: BaseHTTP/0.6 Python/3.4.0
+Date: Fri, 13 Mar 2015 21:35:23 GMT
+Content-type: text/plain
+Content-Length: 29
+
+---response end---
+200 OK
+Length: 29 [text/plain]
+Saving to: ‘File2’
+
+     0K                                                       100%  773 =0.04s
+
+2015-03-14 03:05:23 (773 B/s) - ‘File2’ saved [29/29]
+
+FINISHED --2015-03-14 03:05:23--
+Total wall clock time: 0.04s
+Downloaded: 1 files, 29 in 0.04s (773 B/s)
+127.0.0.1 - - [14/Mar/2015 03:05:23] "GET /File1 HTTP/1.1" 503 -
+127.0.0.1 - - [14/Mar/2015 03:05:23] "GET /File2 HTTP/1.1" 200 -
+Running Test 503 Service Unavailable
+/home/satyam/gnu/wget/src/wget --debug --no-config --tries=2 http://127.0.0.1:54595/File1 http://127.0.0.1:54595/File2 
+['/home/satyam/gnu/wget/src/wget', '--debug', '--no-config', '--tries=2', 'http://127.0.0.1:54595/File1', 'http://127.0.0.1:54595/File2']
+Custom Response code sent.
+Test Passed.
+
