@@ -1,0 +1,77 @@
+======================================================
+   wget 1.16.2.2-e316-dirty: testenv/test-suite.log
+======================================================
+
+# TOTAL: 25
+# PASS:  23
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  2
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: Test-N
+============
+
+Setting --no-config (noconfig) to 1
+Setting --timestamping (timestamping) to 1
+DEBUG output created by Wget 1.16.2.2-e316-dirty on linux-gnu.
+
+--2015-03-13 15:34:45--  http://127.0.0.1:56914/File1
+Connecting to 127.0.0.1:56914... connected.
+Created socket 3.
+Releasing 0x000000000078d790 (new refcount 0).
+Deleting unused 0x000000000078d790.
+
+---request begin---
+GET /File1 HTTP/1.1
+User-Agent: Wget/1.16.2.2-e316-dirty (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 127.0.0.1:56914
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: BaseHTTP/0.6 Python/3.4.0
+Date: Fri, 13 Mar 2015 10:04:45 GMT
+Content-type: text/plain
+Content-Length: 14
+
+---response end---
+200 OK
+Registered socket 3 for persistent reuse.
+Length: 14 [text/plain]
+Saving to: ‘File1’
+
+     0K                                                       100% 3.08M=0s
+
+Last-modified header missing -- time-stamps turned off.
+2015-03-13 15:34:45 (3.08 MB/s) - ‘File1’ saved [14/14]
+
+127.0.0.1 - - [13/Mar/2015 15:34:45] "GET /File1 HTTP/1.1" 200 -
+Running Test Checking time stamp
+/home/satyam/gnu/wget/src/wget --debug --no-config -N  http://127.0.0.1:56914/File1 
+['/home/satyam/gnu/wget/src/wget', '--debug', '--no-config', '-N', 'http://127.0.0.1:56914/File1']
+{'File1': {'content': 'Test Contents.'}}
+Error: Extra files downloaded..
+
+FAIL: Test-b
+============
+
+Setting --no-config (noconfig) to 1
+Setting --background (background) to 1
+Continuing in background, pid 26766.
+Output will be written to ‘wget-log’.
+Running Test HTTPS Downloads in background
+-----BEGIN CERTIFICATE-----
+
+/home/satyam/gnu/wget/src/wget --debug --no-config  -b  https://127.0.0.1:54986/File1 
+['/home/satyam/gnu/wget/src/wget', '--debug', '--no-config', '-b', 'https://127.0.0.1:54986/File1']
+Error: Expected file File1 not found..
+
+
